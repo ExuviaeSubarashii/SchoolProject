@@ -10,21 +10,8 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateBoxes();
         bc = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-    private void CreateBoxes()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            Instantiate(objectToSpawn, transform.position, Quaternion.identity);
-        }
     }
     private void FixedUpdate()
     {

@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         //{
         //    rb.velocity = new Vector3(rb.velocity.x, jumpforce);
         //}
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Jump"))
         {
             Instantiate(ProjectilePrefab, LaunchOffSet.position, transform.rotation);
         }
