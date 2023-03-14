@@ -6,8 +6,9 @@ public class QuickTimeEventMove : MonoBehaviour
 {
     private Rigidbody2D rb;
     private BoxCollider2D bc;
+    private CircleCollider2D cc;
     public GameObject objectToSpawn;
-
+    int Score;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,19 +27,23 @@ public class QuickTimeEventMove : MonoBehaviour
     {
         rb.velocity = new Vector2(-2f, -2f);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+        
+    //}
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (transform.gameObject.name.Contains("Top") && collision.gameObject.name == "ObjectTouchpoint")
+        if (transform.gameObject.name.Contains("Top") && collision.gameObject.name == "LaunchOffSet")
         {
             Object.Destroy(transform.gameObject);
             //rb.position = new Vector2(9.31f, 4.68f);
         }
-        else if (transform.gameObject.name.Contains("Mid") && collision.gameObject.name == "ObjectTouchpoint")
+        else if (transform.gameObject.name.Contains("Mid") && collision.gameObject.name == "LaunchOffSet")
         {
             Object.Destroy(transform.gameObject);
             //rb.position = new Vector2(9.34f, 0.48f);
         }
-        else if (transform.gameObject.name.Contains("Bottom") && collision.gameObject.name == "ObjectTouchpoint")
+        else if (transform.gameObject.name.Contains("Bottom") && collision.gameObject.name == "LaunchOffSet")
         {
             Object.Destroy(transform.gameObject);
             //rb.position = new Vector2(9.42f, -3.6f);
