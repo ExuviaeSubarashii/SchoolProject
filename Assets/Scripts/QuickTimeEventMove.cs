@@ -8,7 +8,7 @@ public class QuickTimeEventMove : MonoBehaviour
     private BoxCollider2D bc;
     private CircleCollider2D cc;
     public GameObject objectToSpawn;
-    int Score;
+    public ScoreManager SM;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class QuickTimeEventMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
     }
-    private void CreateBoxes()
+    public void CreateBoxes()
     {
         for (int i = 0; i < 5; i++)
         {
@@ -27,26 +27,22 @@ public class QuickTimeEventMove : MonoBehaviour
     {
         rb.velocity = new Vector2(-2f, -2f);
     }
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-        
-    //}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (transform.gameObject.name.Contains("Clone") && collision.gameObject.name == "ObjectTouchpoint")
+        {
+            Object.Destroy(transform.gameObject);
+            Invoke("CreateBoxes", 5);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (transform.gameObject.name.Contains("Top") && collision.gameObject.name == "LaunchOffSet")
+        
+        if (transform.gameObject.name.Contains("Clone") && collision.gameObject.name == "LaunchOffSet")
         {
             Object.Destroy(transform.gameObject);
-            //rb.position = new Vector2(9.31f, 4.68f);
+            ScoreManager.instance.AddPoint();
         }
-        else if (transform.gameObject.name.Contains("Mid") && collision.gameObject.name == "LaunchOffSet")
-        {
-            Object.Destroy(transform.gameObject);
-            //rb.position = new Vector2(9.34f, 0.48f);
-        }
-        else if (transform.gameObject.name.Contains("Bottom") && collision.gameObject.name == "LaunchOffSet")
-        {
-            Object.Destroy(transform.gameObject);
-            //rb.position = new Vector2(9.42f, -3.6f);
-        }
+        
     }
 }
