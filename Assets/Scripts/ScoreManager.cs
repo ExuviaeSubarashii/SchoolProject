@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public Text ScoreText; 
+    public Text ScoreText;
     public Text HighScoreText;
-    int score = 0;
+    public int score = 0;
     int highscore = 0;
     public QuickTimeEventMove QTEM;
     private void Awake()
@@ -17,7 +18,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ScoreText.text = score.ToString()+" POINTS";
+        ScoreText.text = score.ToString() + " POINTS";
         HighScoreText.text = "HIGHSCORE: " + highscore.ToString();
     }
     public void AddPoint()
@@ -25,11 +26,15 @@ public class ScoreManager : MonoBehaviour
         score += 1;
         ScoreText.text = score.ToString() + " POINTS";
     }
-    public void CreateBoxesWhenScoreIsDividible()
+    public void CreateBoxesOnPoints()
     {
-        if (score/2==0)
+        if (score == 10)
         {
-            QTEM.CreateBoxes();
+            QTEM.CreateSingleBox();
         }
+    }
+    private void CompleteLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
