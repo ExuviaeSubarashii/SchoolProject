@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class MoveBoxes : MonoBehaviour
 {
+    public static MoveBoxes MBInstace;
     private Rigidbody2D rb;
     private BoxCollider2D bc;
-
+    public float speed = 1f;
+    private void Awake()
+    {
+        MBInstace = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +22,7 @@ public class MoveBoxes : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        rb.velocity += rb.velocity.normalized*speed;
         rb.velocity = new Vector2(-2f, -2f);
     }
     private void OnCollisionEnter2D(Collision2D collision)

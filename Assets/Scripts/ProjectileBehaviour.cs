@@ -8,10 +8,8 @@ public class ProjectileBehaviour : MonoBehaviour
     public Collider2D mycollider;
     void Start()
     {
+        DisableCollidor();
         mycollider = GetComponent<Collider2D>();
-    }
-    void Update()
-    {
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {

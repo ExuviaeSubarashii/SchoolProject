@@ -8,14 +8,13 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     public Text ScoreText;
     public Text HighScoreText;
-    public int score = 0;
+    public int score = 40;
     int highscore = 0;
     public QuickTimeEventMove QTEM;
     private void Awake()
     {
         instance = this;
     }
-    // Start is called before the first frame update
     void Start()
     {
         ScoreText.text = score.ToString() + " POINTS";
@@ -25,16 +24,13 @@ public class ScoreManager : MonoBehaviour
     {
         score += 1;
         ScoreText.text = score.ToString() + " POINTS";
+        QuickTimeEventMove.QTEMInstance.CreateSingleBox();
     }
-    public void CreateBoxesOnPoints()
+    public void CompleteLevel()
     {
-        if (score == 10)
+        if (score==216)
         {
-            QTEM.CreateSingleBox();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-    }
-    private void CompleteLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
