@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public ProjectileBehaviour projectileBehaviour;
@@ -49,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector2(-9.05f, -2.94f);
             projectileBehaviour.OnAttack();
             Instantiate(ProjectilePrefab, LaunchOffSet.position, transform.rotation);
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Level_Select");
         }
     }
     private bool IsGrounded()

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ProjectileBehaviour : MonoBehaviour
 {
-    public float speed = 4.5f;
     public Collider2D mycollider;
     void Start()
     {
@@ -22,7 +21,7 @@ public class ProjectileBehaviour : MonoBehaviour
     public void OnAttack()
     {
         EnableCollidor();
-        Invoke("DisableCollidor",0.1f);
+        Invoke("DisableCollidor",0.2f);
     }
     public void DisableCollidor()
     {

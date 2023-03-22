@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Grass
   - Water
   - UI
   - Ground
@@ -44,9 +44,12 @@ TagManager:
   - name: Background
     uniqueID: 1092859875
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Grass
+    uniqueID: 1634721271
     locked: 0
   - name: Terrain
     uniqueID: 2692933249
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
