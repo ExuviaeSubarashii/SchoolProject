@@ -9,7 +9,7 @@ public class QuickTimeEventMove : MonoBehaviour
     private BoxCollider2D bc;
     private CircleCollider2D cc;
     public GameObject objectToSpawn;
-    
+    public float speed=1f;
     private void Awake()
     {
         QTEMInstance = this;
@@ -43,7 +43,7 @@ public class QuickTimeEventMove : MonoBehaviour
         {
             yield return new WaitForSeconds(IncreasingValue);
             IncreasingValue += 0.3f;
-            MoveBoxes.MBInstace.speed += 3f;
+            speed += 1f;
             Instantiate(objectToSpawn, transform.position, Quaternion.identity);
         }
     }
@@ -56,7 +56,8 @@ public class QuickTimeEventMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(-2f, -2f);
+        rb.velocity = rb.velocity.normalized * speed;
+        //rb.velocity = new Vector2(-2f, -2f);
         if (ScoreManager.instance.score == 40)
         {
             //ScoreManager.instance.CompleteLevel();

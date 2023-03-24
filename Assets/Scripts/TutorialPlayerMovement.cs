@@ -19,7 +19,7 @@ public class TutorialPlayerMovement : MonoBehaviour
     }
     float dirX = 0;
     [SerializeField] private float movespeed = 7f;
-    [SerializeField] private float jumpforce = 1f;
+    //[SerializeField] private float jumpforce = 0.1f;
     private enum MovementState { idle, running, jumping, falling };
 
     // Update is called once per frame
@@ -35,13 +35,13 @@ public class TutorialPlayerMovement : MonoBehaviour
     {
         //character movements
         dirX = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirX * 7f, rb.velocity.y);
+        rb.velocity = new Vector2(dirX * movespeed, rb.velocity.y);
         MovementState state;
-        if (Input.GetButtonDown("Jump"))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpforce);
+        //if (Input.GetButtonDown("Jump"))
+        //{
+        //    rb.velocity = new Vector2(rb.velocity.x, jumpforce);
             
-        }
+        //}
         if (dirX > 0f)
         {
             state = MovementState.running;

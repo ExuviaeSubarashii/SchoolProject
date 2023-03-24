@@ -7,7 +7,7 @@ public class MoveBoxes : MonoBehaviour
     public static MoveBoxes MBInstace;
     private Rigidbody2D rb;
     private BoxCollider2D bc;
-    public float speed = 1f;
+    public float speed;
     private void Awake()
     {
         MBInstace = this;
@@ -18,12 +18,16 @@ public class MoveBoxes : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
     }
+    private void Update()
+    {
 
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity += rb.velocity.normalized*speed;
-        rb.velocity = new Vector2(-2f, -2f);
+        //speed += 1;
+        rb.velocity = rb.velocity.normalized * QuickTimeEventMove.QTEMInstance.speed;
+        //rb.velocity = new Vector2(-2f, -2f);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
