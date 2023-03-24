@@ -28,11 +28,11 @@ public class LevelSelectionCollider : MonoBehaviour
     }
     void ChangeSprite()
     {
-        if ((Player.transform.position - this.transform.position).sqrMagnitude < 3 * 3)
+        if (Vector3.Distance(Player.transform.position,this.transform.position)<3)
         {
             rend.sprite = OpenSprite;
         }
-        else if ((Player.transform.position - this.transform.position).sqrMagnitude < 3 * 3)
+        else if (Vector3.Distance(Player.transform.position, this.transform.position) < 3)
         {
             rend.sprite = OpenSprite;
         }
