@@ -38,7 +38,7 @@ public class QuickTimeEventMove : MonoBehaviour
     //}
     public IEnumerator Boxes()
     {
-        float IncreasingValue = 1f;
+        float IncreasingValue = Random.Range(0f,3f);
         for (int i = 0; i < 100; i++)
         {
             yield return new WaitForSeconds(IncreasingValue);

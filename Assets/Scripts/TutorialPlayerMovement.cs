@@ -19,7 +19,6 @@ public class TutorialPlayerMovement : MonoBehaviour
     }
     float dirX = 0;
     [SerializeField] private float movespeed = 7f;
-    //[SerializeField] private float jumpforce = 0.1f;
     private enum MovementState { idle, running, jumping, falling };
 
     // Update is called once per frame

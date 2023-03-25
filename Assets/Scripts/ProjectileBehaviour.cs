@@ -7,8 +7,8 @@ public class ProjectileBehaviour : MonoBehaviour
     public Collider2D mycollider;
     void Start()
     {
+        //mycollider = GetComponent<BoxCollider2D>();
         DisableCollidor();
-        mycollider = GetComponent<BoxCollider2D>();
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {

@@ -19,38 +19,36 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
-    //[SerializeField] private float movespeed = 7f;
-    //private enum MovementState { idle, running, jumping, falling };
-
-    // Update is called once per frame
     void Update()
     {
         UpdateAnimationState();
     }
     private void UpdateAnimationState()
     {
-        //top object
-        if (Input.GetKey(KeyCode.Q))
+        
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             transform.position = new Vector2(-9.2f, 5.14f);
             projectileBehaviour.OnAttack();
             Instantiate(ProjectilePrefab, LaunchOffSet.position, transform.rotation);
         }
-        //mid object
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             transform.position = new Vector2(-9.05f, 0.93f);
             projectileBehaviour.OnAttack();
             Instantiate(ProjectilePrefab, LaunchOffSet.position, transform.rotation);
         }
-        //bottom object
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             transform.position = new Vector2(-9.05f, -2.94f);
             projectileBehaviour.OnAttack();
             Instantiate(ProjectilePrefab, LaunchOffSet.position, transform.rotation);
         }
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("Level_Select");
         }
