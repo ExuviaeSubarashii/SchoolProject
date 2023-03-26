@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 1026668298}
+  speed: 1
 --- !u!50 &63193084
 Rigidbody2D:
   serializedVersion: 4
@@ -812,6 +813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 1464360791}
   HighScoreText: {fileID: 629697654}
+  HitOrMiss: {fileID: 0}
   score: 0
   QTEM: {fileID: 0}
 --- !u!114 &958940494
@@ -1090,7 +1092,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1161.8884, y: -3885.7092}
+  m_Offset: {x: -1161.8884, y: -3538.497}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1101,7 +1103,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2324.7769, y: 9725.8125}
+  m_Size: {x: 2324.7769, y: 10420.236}
   m_EdgeRadius: 0
 --- !u!114 &1258374047
 MonoBehaviour:
@@ -8976,6 +8978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 567402793}
+  speed: 1
 --- !u!50 &2000907320
 Rigidbody2D:
   serializedVersion: 4
@@ -9084,6 +9087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 1860323747}
+  speed: 1
 --- !u!50 &2042895928
 Rigidbody2D:
   serializedVersion: 4

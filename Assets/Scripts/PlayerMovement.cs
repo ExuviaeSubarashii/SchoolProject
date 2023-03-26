@@ -28,19 +28,22 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            transform.position = new Vector2(-9.2f, 5.14f);
+            //transform.position = new Vector2(-9.2f, 5.14f);
+            transform.position = new Vector2(-3.41f, 4.99f);
             projectileBehaviour.OnAttack();
             Instantiate(ProjectilePrefab, LaunchOffSet.position, transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            transform.position = new Vector2(-9.05f, 0.93f);
+            //transform.position = new Vector2(-9.05f, 0.93f);
+            transform.position = new Vector2(-3.29f, 1f);
             projectileBehaviour.OnAttack();
             Instantiate(ProjectilePrefab, LaunchOffSet.position, transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            transform.position = new Vector2(-9.05f, -2.94f);
+            //transform.position = new Vector2(-9.05f, -2.94f);
+            transform.position = new Vector2(-3.23f, -2.9f);
             projectileBehaviour.OnAttack();
             Instantiate(ProjectilePrefab, LaunchOffSet.position, transform.rotation);
         }

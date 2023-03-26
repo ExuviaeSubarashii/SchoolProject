@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     public Text ScoreText;
     public Text HighScoreText;
+    public Text HitOrMiss;
     public int score = 40;
     int highscore = 0;
     public QuickTimeEventMove QTEM;
@@ -24,7 +25,12 @@ public class ScoreManager : MonoBehaviour
     {
         score += 1;
         ScoreText.text = score.ToString() + " POINTS";
-        QuickTimeEventMove.QTEMInstance.CreateSingleBox();
+        //QuickTimeEventMove.QTEMInstance.CreateSingleBox();
+    }
+    public void AddTwoPoints()
+    {
+        score += 2;
+        ScoreText.text = score.ToString() + " POINTS";
     }
     public void CompleteLevel()
     {
@@ -32,5 +38,9 @@ public class ScoreManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+    }
+    public void IsItMiss()
+    {
+        HitOrMiss.text = "Miss";
     }
 }

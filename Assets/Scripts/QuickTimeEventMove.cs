@@ -9,7 +9,7 @@ public class QuickTimeEventMove : MonoBehaviour
     private BoxCollider2D bc;
     private CircleCollider2D cc;
     public GameObject objectToSpawn;
-    public float speed=1f;
+    public float speed = 1f;
     private void Awake()
     {
         QTEMInstance = this;
@@ -38,14 +38,29 @@ public class QuickTimeEventMove : MonoBehaviour
     //}
     public IEnumerator Boxes()
     {
-        float IncreasingValue = Random.Range(0f,3f);
-        for (int i = 0; i < 100; i++)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            yield return new WaitForSeconds(IncreasingValue);
-            IncreasingValue += 0.3f;
-            speed += 1f;
-            Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+            float IncreasingValue = Random.Range(1f, 3f);
+            for (int i = 0; i < 100; i++)
+            {
+                yield return new WaitForSeconds(IncreasingValue);
+                IncreasingValue += 0.3f;
+                speed += 1f;
+                Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+            }
         }
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            float IncreasingValue = Random.Range(1f, 5f);
+            for (int i = 0; i < 100; i++)
+            {
+                yield return new WaitForSeconds(IncreasingValue);
+                IncreasingValue += 0.3f;
+                speed += 1f;
+                Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+            }
+        }
+
     }
     public IEnumerator CreateSingleBox()
     {
@@ -67,6 +82,11 @@ public class QuickTimeEventMove : MonoBehaviour
     {
         if (transform.gameObject.name.Contains("Clone") && collision.gameObject.name == "ObjectTouchpoint")
         {
+            transform.gameObject.SetActive(false);
+        }
+        if (transform.gameObject.name.Contains("Clone") && collision.gameObject.name == "LaunchOffSet" && collision.contactCount > 2)
+        {
+            ScoreManager.instance.AddTwoPoints();
             transform.gameObject.SetActive(false);
         }
     }
