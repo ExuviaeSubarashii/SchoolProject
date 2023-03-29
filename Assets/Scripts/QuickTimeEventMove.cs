@@ -40,23 +40,23 @@ public class QuickTimeEventMove : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            float IncreasingValue = Random.Range(1f, 3f);
-            for (int i = 0; i < 100; i++)
+            float IncreasingValue = Random.Range(1f, 2f);
+            for (int i = 0; i < 300; i++)
             {
                 yield return new WaitForSeconds(IncreasingValue);
-                IncreasingValue += 0.3f;
-                speed += 1f;
+                //IncreasingValue += 0.3f;
+                speed += 0.1f;
                 Instantiate(objectToSpawn, transform.position, Quaternion.identity);
             }
         }
         else if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             float IncreasingValue = Random.Range(1f, 5f);
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 350; i++)
             {
                 yield return new WaitForSeconds(IncreasingValue);
                 IncreasingValue += 0.3f;
-                speed += 1f;
+                speed += 0.1f;
                 Instantiate(objectToSpawn, transform.position, Quaternion.identity);
             }
         }
