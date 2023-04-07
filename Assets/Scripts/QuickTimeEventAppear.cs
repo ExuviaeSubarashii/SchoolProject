@@ -7,7 +7,7 @@ public class QuickTimeEventAppear : MonoBehaviour
 {
     public static QuickTimeEventAppear instance;
     public Text RandomLetter;
-    public string Score;
+    public int Score;
     KeyCode myKeyCode;
     char c;
     string myString;
@@ -21,23 +21,20 @@ public class QuickTimeEventAppear : MonoBehaviour
     {
         RandomLetter.text = "";
         myKeyCode = (KeyCode)c;
-    }
-    public void InstantiateQTE()
-    {
         SetRandomLetter();
     }
     public void CheckIfCorrectLetter()
     {
         if (System.Enum.TryParse(myString, out myKeyCode))
         {
-            if (Input.GetKey(myKeyCode))
+            if (Input.GetKeyDown(myKeyCode))
             {
-                //Debug.Log("Hello, A was pressed");
+                //myKeyCode = KeyCode.None;
+                RandomLetter.text = null;
+                ScoreManager.instance.AddTwoPoints();
                 SetRandomLetter();
-                ScoreManager.instance.AddPoint();
             }
         }
-
     }
     public void SetRandomLetter()
     {
@@ -48,6 +45,5 @@ public class QuickTimeEventAppear : MonoBehaviour
     void Update()
     {
         CheckIfCorrectLetter();
-        //Score = ScoreManager.instance.score.ToString();
     }
 }
