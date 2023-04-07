@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - QTE
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 1092859875
+    locked: 0
+  - name: QTE
+    uniqueID: 105294173
     locked: 0
   - name: Grass
     uniqueID: 1634721271

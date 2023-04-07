@@ -83,6 +83,7 @@ public class QuickTimeEventMove : MonoBehaviour
         if (transform.gameObject.name.Contains("Clone") && collision.gameObject.name == "ObjectTouchpoint")
         {
             transform.gameObject.SetActive(false);
+            ScoreManager.instance.IsItMiss();
         }
         if (transform.gameObject.name.Contains("Clone") && collision.gameObject.name == "LaunchOffSet" && collision.contactCount > 2)
         {

@@ -32,9 +32,13 @@ public class ScoreManager : MonoBehaviour
         score += 2;
         ScoreText.text = score.ToString() + " POINTS";
     }
+    public void WhatEverTheFuck()
+    {
+        QuickTimeEventAppear.instance.InstantiateQTE();
+    }
     public void CompleteLevel()
     {
-        if (score==216)
+        if (score == 216)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
