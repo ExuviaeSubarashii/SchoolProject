@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
+
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
@@ -11,7 +13,10 @@ public class ScoreManager : MonoBehaviour
     string HitOrmiss;
     public int score = 1;
     int highscore;
-    private void Awake()
+    public TextWriter fs;
+    string path = "";
+    string content = "";
+    void Awake()
     {
         instance = this;
     }
@@ -24,11 +29,13 @@ public class ScoreManager : MonoBehaviour
     {
         score += 1;
         ScoreText.text = score.ToString() + " POINTS";
+        QuickTimeEventAppear.instance.SetRandomLetter();
     }
     public void AddTwoPoints()
     {
         score += 2;
         ScoreText.text = score.ToString() + " POINTS";
+        QuickTimeEventAppear.instance.SetRandomLetter();
     }
     public void AddThreePoints()
     {
@@ -38,6 +45,18 @@ public class ScoreManager : MonoBehaviour
     }
     public void CompleteLevel()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            path = @"./Assets/Scoreboards/Level1Scoreboard.txt";
+            content = score.ToString();
+            File.WriteAllText(path, content);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            path = @"./Assets/Scoreboards/Level2Scoreboard.txt";
+            content = score.ToString();
+            File.WriteAllText(path, content);
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

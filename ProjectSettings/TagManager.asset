@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ObjectTouchPoint
   - Qtebox
+  - LauncOffSet
   layers:
   - Default
   - TransparentFX

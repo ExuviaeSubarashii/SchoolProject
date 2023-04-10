@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ObjectTouchpoint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (name.Contains("Clone") && collision.gameObject.tag == "ObjectTouchpoint")
+        {
+            transform.gameObject.SetActive(false);
+        }
+        if (name.Contains("Clone") && collision.gameObject.name == "LaunchOffSet" && collision.contactCount > 2)
+        {
+            transform.gameObject.SetActive(false);
+            ScoreManager.instance.AddTwoPoints();
+        }
     }
 }

@@ -5,11 +5,10 @@ using UnityEngine;
 public class ProjectileBehaviour : MonoBehaviour
 {
     public Collider2D mycollider;
-    void Start()
-    {
-        //mycollider = GetComponent<BoxCollider2D>();
-        DisableCollidor();
-    }
+    //void Start()
+    //{
+    //    DisableCollidor();
+    //}
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
@@ -21,10 +20,13 @@ public class ProjectileBehaviour : MonoBehaviour
     public void OnAttack()
     {
         EnableCollidor();
-        Invoke("DisableCollidor",0.2f);
+        Invoke("DisableCollidor", 0.2f);
     }
     public void DisableCollidor()
     {
-        mycollider.enabled = false;
+        if (transform!=null)
+        {
+            mycollider.enabled = false;
+        }
     }
 }

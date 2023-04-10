@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialPlayerMovement : MonoBehaviour
 {
@@ -62,6 +63,10 @@ public class TutorialPlayerMovement : MonoBehaviour
         else if (rb.velocity.y < -.1f)
         {
             state = MovementState.falling;
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            SceneManager.LoadScene("HowToPlay");
         }
         anim.SetInteger("state", (int)state);
     }

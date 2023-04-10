@@ -12,7 +12,7 @@ public class QuickTimeEventAppear : MonoBehaviour
     char c;
     string myString;
     //public GameObject QTE;
-    private void Awake()
+    void Awake()
     {
         instance = this;
     }

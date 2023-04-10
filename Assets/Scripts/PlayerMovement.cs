@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             projectileBehaviour.OnAttack();
             Instantiate(ProjectilePrefab, LaunchOffSet.position, transform.rotation);
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
