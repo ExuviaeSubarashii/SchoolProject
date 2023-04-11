@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
+using System.Linq;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -23,7 +24,25 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         ScoreText.text = score.ToString() + " POINTS";
-        HighScoreText.text = "HIGHSCORE: " + highscore.ToString();
+        //set the highscore
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            path = @"./Assets/Scoreboards/Level1Scoreboard.txt";
+            List<string> fileLines = File.ReadAllLines(path).ToList();
+            foreach (string line in fileLines)
+            {
+                HighScoreText.text = "HIGHSCORE: " + line;
+            }
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            path = @"./Assets/Scoreboards/Level2Scoreboard.txt";
+            List<string> fileLines = File.ReadAllLines(path).ToList();
+            foreach (string line in fileLines)
+            {
+                HighScoreText.text = "HIGHSCORE: " + line;
+            }
+        }
     }
     public void AddPoint()
     {
@@ -50,13 +69,17 @@ public class ScoreManager : MonoBehaviour
             path = @"./Assets/Scoreboards/Level1Scoreboard.txt";
             content = score.ToString();
             File.WriteAllText(path, content);
+            Debug.Log("Level1Scoreboard.txt Overwritten");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             path = @"./Assets/Scoreboards/Level2Scoreboard.txt";
             content = score.ToString();
             File.WriteAllText(path, content);
+            Debug.Log("Level2Scoreboard.txt Overwritten");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
 }
