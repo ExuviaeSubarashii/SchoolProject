@@ -194,7 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Bilgilendirma \u0130\xE7in H Tu\u015Funa Basabilirsin."
+  m_Text: "Bilgilendirme \u0130\xE7in H Tu\u015Funa Basabilirsin."
 --- !u!222 &97959800
 CanvasRenderer:
   m_ObjectHideFlags: 0

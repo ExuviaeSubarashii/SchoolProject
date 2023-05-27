@@ -66,7 +66,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            path = @"./Assets/Scoreboards/Level1Scoreboard.txt";
+            path = @"Assets/Scoreboards/Level1Scoreboard.txt";
             content = score.ToString();
             File.WriteAllText(path, content);
             Debug.Log("Level1Scoreboard.txt Overwritten");
@@ -74,7 +74,7 @@ public class ScoreManager : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
-            path = @"./Assets/Scoreboards/Level2Scoreboard.txt";
+            path = @"Assets/Scoreboards/Level2Scoreboard.txt";
             content = score.ToString();
             File.WriteAllText(path, content);
             Debug.Log("Level2Scoreboard.txt Overwritten");

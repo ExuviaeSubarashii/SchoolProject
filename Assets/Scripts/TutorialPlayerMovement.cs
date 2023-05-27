@@ -10,6 +10,7 @@ public class TutorialPlayerMovement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D coll;
     [SerializeField] private LayerMask jumpableGround;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +27,13 @@ public class TutorialPlayerMovement : MonoBehaviour
     void Update()
     {
         UpdateAnimationState();
+        
     }
     private void FixedUpdate()
     {
         IsFlipped();
     }
+    
     private void UpdateAnimationState()
     {
         //character movements
